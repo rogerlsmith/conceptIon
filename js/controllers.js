@@ -163,12 +163,12 @@ angular.module ( 'starter.controllers', [] )
 .controller ( 'AudioCtrl', function ( $scope ) {
 
   $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
+    { title: 'Messages', id: 1 },
+    { title: 'Songs', id: 2 },
+    { title: 'Poetry', id: 3 },
+    { title: 'Jokes', id: 4 },
+    { title: 'Thoughts', id: 5 },
+    { title: 'Sounds', id: 6 }
   ];
 
   $scope.showPublic = function ( ) {
@@ -182,7 +182,7 @@ angular.module ( 'starter.controllers', [] )
 })        // end of AudioCtrl
 
 
-.controller('PlaylistCtrl', function($scope, $stateParams) {
+.controller ( 'PlaylistCtrl', function ( $scope, $stateParams ) {
 });       // end of PlaylistCtrl
 
 
