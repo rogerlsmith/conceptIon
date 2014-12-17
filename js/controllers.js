@@ -33,18 +33,30 @@ angular.module ( 'starter.controllers', [] )
   $scope.doLogin = function ( ) {
     console.log ( 'Doing login: ', $scope.loginData );
 
-    $http.post ( 'http://rogerlsmith.net/concept/bower_components/bootstrap/mobile/user.php', {
-          username: $scope.loginData.username,
-          password: $scope.loginData.password,
-          method: 'login'
-      }).
-      success ( function ( data, status, headers, config ) {
-          alert ( "success" );
+    var formData = { 
+      username: $scope.loginData.username,
+      password: $scope.loginData.password,
+      method: 'login'
+    };
 
-      }).
-      error ( function ( data, status, headers, config ) {
-          alert ( "Error" );
-      });
+    $http ( {
+        method  : 'POST',
+        url     : 'http://rogerlsmith.net/concept/bower_components/bootstrap/mobile/user.php',
+        data    : formData,
+        headers : {'Content-Type': 'application/x-www-form-urlencoded'} 
+      } )
+      .success ( function ( data, status, headers, config ) {
+          if ( status == 200 ) {
+              alert ( JSON.stringify ( data ) );
+              alert ( JSON.stringify ( config ) );
+          }
+
+      } )
+      .error ( function ( data, status, headers, config ) {
+          alert ( "Error Message" );
+          alert (data);
+          alert (JSON.stringify(config));
+      } );
   };
 
 
@@ -76,20 +88,21 @@ angular.module ( 'starter.controllers', [] )
   $scope.doRegister = function ( ) {
     console.log('Doing register', $scope.registerData);
 
-    $http.post ( 'http://rogerlsmith.net/concept/bower_components/bootstrap/mobile/user.php', {
+    $http
+      .post ( 'http://rogerlsmith.net/concept/bower_components/bootstrap/mobile/user.php', {
           username: $scope.registerData.username,
           firstname: $scope.registerData.firstname,
           lastname: $scope.registerData.lastname,
           email: $scope.registerData.email,
           password: $scope.registerData.password,
           method: 'register'
-      }).
-      success ( function ( data, status, headers, config ) {
+      } )
+      .success ( function ( data, status, headers, config ) {
           alert ( "success" );
-      }).
-      error ( function ( data, status, headers, config ) {
+      } )
+      .error ( function ( data, status, headers, config ) {
           alert ( "Error" );
-      });
+      } );
     };
 
 
