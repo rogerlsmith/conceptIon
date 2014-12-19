@@ -43,19 +43,15 @@ angular.module ( 'starter.controllers', [] )
         method  : 'POST',
         url     : 'http://rogerlsmith.net/concept/bower_components/bootstrap/mobile/user.php',
         data    : formData,
-        headers : {'Content-Type': 'application/x-www-form-urlencoded'} 
+
       } )
       .success ( function ( data, status, headers, config ) {
           if ( status == 200 ) {
-              alert ( JSON.stringify ( data ) );
-              alert ( JSON.stringify ( config ) );
-          }
 
+          }
       } )
       .error ( function ( data, status, headers, config ) {
-          alert ( "Error Message" );
-          alert (data);
-          alert (JSON.stringify(config));
+
       } );
   };
 
