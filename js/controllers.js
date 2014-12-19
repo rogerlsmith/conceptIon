@@ -47,11 +47,11 @@ angular.module ( 'starter.controllers', [] )
       } )
       .success ( function ( data, status, headers, config ) {
           if ( status == 200 ) {
-
+            alert ( "Login Success" );
           }
       } )
       .error ( function ( data, status, headers, config ) {
-
+        alert ( "Login failure" );
       } );
   };
 
