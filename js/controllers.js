@@ -105,11 +105,11 @@ angular.module ( 'starter.controllers', [] )
 /* Forgot Password */
 
 
-      // Form data for the forgot password modal
-    $scope.forgotData = {};
+    // Form data for the forgot password modal
+    $scope.forgotPasswordData = {};
 
     // Create the forgot password modal that we will use later
-    $ionicModal.fromTemplateUrl ( 'templates/forgot.html', {
+    $ionicModal.fromTemplateUrl ( 'templates/forgotPassword.html', {
       scope: $scope
     }).then( function ( modal ) {
       $scope.forgotmodal = modal;
@@ -125,19 +125,22 @@ angular.module ( 'starter.controllers', [] )
       $scope.forgotmodal.show ( );
     };
 
-    // Perform the register action when the user submits the register form
+
+    // Perform the resetPassword action when the user submits the forgotPassword form
     $scope.doForgot = function() {
-      console.log ( 'Doing forgot password', $scope.forgotData );
+      console.log ( 'Doing forgot password', $scope.forgotPasswordData );
 
 
-      $http.post ( '/forgot', {
-          username: $scope.forgotData.username,
-          email: $scope.forgotData.email
-        }).
-        success( function ( data, status, headers, config ) {
+      $http
+        .post ( 'http://rogerlsmith.net/concept/bower_components/bootstrap/mobile/user.php', {
+          username: $scope.forgotPasswordData.username,
+          email: $scope.forgotPasswordData.email,
+          method: 'reestPassword'
+        })
+        .success( function ( data, status, headers, config ) {
             alert ( "success" );
-        }).
-        error( function ( data, status, headers, config ) {
+        })
+        .error( function ( data, status, headers, config ) {
             alert( "Error" );
         });
     };
