@@ -116,7 +116,7 @@ angular.module ( 'starter.controllers', [] )
     });
 
     // Triggered in the forgot modal to close it
-    $scope.closeForgot = function ( ) {
+    $scope.closeForgotPassword = function ( ) {
       $scope.forgotmodal.hide ( );
     };
 
@@ -129,7 +129,6 @@ angular.module ( 'starter.controllers', [] )
     // Perform the resetPassword action when the user submits the forgotPassword form
     $scope.doForgot = function() {
       console.log ( 'Doing forgot password', $scope.forgotPasswordData );
-
 
       $http
         .post ( 'http://rogerlsmith.net/concept/bower_components/bootstrap/mobile/user.php', {
