@@ -3,11 +3,12 @@
 angular.module ( 'starter.controllers', [] )
 
 
-.controller ( 'AppCtrl', function ( $scope, $http, $ionicModal, $timeout ) {
+.controller ( 'AppCtrl', function ( $scope, $http, $cordovaFile, $cordovaMedia, $ionicModal, $timeout ) {
 
 
 /* Login */
 
+  $scope.options = {};
 
   // Form data for the login modal
   $scope.loginData = {};
@@ -140,19 +141,20 @@ angular.module ( 'starter.controllers', [] )
             alert ( "success" );
         })
         .error( function ( data, status, headers, config ) {
-            alert( "Error" );
+            alert ( "Error" );
         });
     };
 
 
-    // $scope
-    //   .uploadFile ( 'http://rogerlsmith.net/concept/bower_components/bootstrap/mobile/audio.php', 
-    //     'test.mp3', 
+    // $scope.uploadFile = function ( ) {
+
+    //  ( 'http://rogerlsmith.net/concept/bower_components/bootstrap/mobile/audio.php', 
+    //     'test.mp3',
     //     options )
-    //   .then( function ( result ) {
-    //      //Success
+    //   .then ( function ( result ) {
+    //      alert ( "success" );
     //   }, function ( err ) {
-    //       //Error
+    //      alert ( "fail" );
     //   }, function ( progress ) {
     //       //Constant Progress updates
     //   });
