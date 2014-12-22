@@ -148,6 +148,8 @@ angular.module ( 'starter.controllers', [] )
 
 /* Upload File */
 
+    /* data for upload */
+    $scope.uploadData = {};
 
     $scope.upload = function ( ) {
        console.log ( 'Doing upload', $scope.uploadData );
@@ -181,6 +183,9 @@ angular.module ( 'starter.controllers', [] )
 /* Record Audio */
 
 
+    /* data for capture */
+    $scope.captureData = {};
+    
     $scope.captureAudio = function ( ) {
         console.log ( 'Doing audio capture', $scope.captureData );
 
