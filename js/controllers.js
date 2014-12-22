@@ -128,7 +128,7 @@ angular.module ( 'starter.controllers', [] )
 
 
     // Perform the resetPassword action when the user submits the forgotPassword form
-    $scope.doForgot = function() {
+    $scope.doForgot = function ( ) {
       console.log ( 'Doing forgot password', $scope.forgotPasswordData );
 
       $http
@@ -146,29 +146,41 @@ angular.module ( 'starter.controllers', [] )
     };
 
 
-    // $scope.uploadFile = function ( ) {
-
-    //  ( 'http://rogerlsmith.net/concept/bower_components/bootstrap/mobile/audio.php', 
-    //     'test.mp3',
-    //     options )
-    //   .then ( function ( result ) {
-    //      alert ( "success" );
-    //   }, function ( err ) {
-    //      alert ( "fail" );
-    //   }, function ( progress ) {
-    //       //Constant Progress updates
-    //   });
+/* Upload File */
 
 
+    $scope.upload = function ( ) {
+       console.log ( 'Doing upload', $scope.uploadData );
 
-    // $scope.captureAudio = function() {
-    //   var options = { limit: 3, duration: 10 };
+       $cordovaFile
+        .uploadFile ( 'http://rogerlsmith.net/concept/bower_components/bootstrap/mobile/audio.php', 
+          'test.mp3',
+           options )
+        .then ( function ( result ) {
+          alert ( "success" );
+        }, function ( err ) {
+           alert ( "fail" );
+        }, function ( progress ) {
+           //Constant Progress updates
+       });
 
-    //   $cordovaCapture.captureAudio(options).then(function(audioData) {
-    //     // Success! Audio data is here
-    //   }, function(err) {
-    //     // An error occurred. Show a message to the user
-    //   });
+      };
+      
+
+/* Record Audio */
+
+
+    $scope.captureAudio = function ( ) {
+        console.log ( 'Doing audio capture', $scope.captureData );
+
+        var options = { limit: 3, duration: 10 };
+
+        $cordovaMedia.captureAudio ( options ).then ( function ( audioData ) {
+         alert ( "success" );
+       }, function(err) {
+         alert ( "fail" );
+       });
+      };
 
   })        // end of AppCtrl
 
