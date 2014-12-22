@@ -153,16 +153,27 @@ angular.module ( 'starter.controllers', [] )
        console.log ( 'Doing upload', $scope.uploadData );
 
        $cordovaFile
-        .uploadFile ( 'http://rogerlsmith.net/concept/bower_components/bootstrap/mobile/audio.php', 
+        .uploadFile ( 
+          'http://rogerlsmith.net/concept/bower_components/bootstrap/mobile/audio.php', 
           'test.mp3',
            options )
-        .then ( function ( result ) {
-          alert ( "success" );
-        }, function ( err ) {
-           alert ( "fail" );
-        }, function ( progress ) {
-           //Constant Progress updates
-       });
+
+        .then ( 
+          function ( result ) {
+
+            alert ( "success" );
+
+          }, 
+          function ( err ) {
+
+             alert ( "fail" );
+
+          }, 
+          function ( progress ) {
+
+             //Constant Progress updates
+
+         });
 
       };
       
@@ -175,12 +186,20 @@ angular.module ( 'starter.controllers', [] )
 
         var options = { limit: 3, duration: 10 };
 
-        $cordovaMedia.captureAudio ( options ).then ( function ( audioData ) {
-         alert ( "success" );
-       }, function(err) {
-         alert ( "fail" );
-       });
-      };
+        $cordovaMedia
+          .captureAudio ( options )
+
+          .then ( 
+            function ( audioData ) {
+
+              alert ( "success" );
+
+            }, function ( err ) {
+
+              alert ( "fail" );
+
+            });
+    };
 
   })        // end of AppCtrl
 
