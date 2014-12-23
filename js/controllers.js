@@ -14,11 +14,14 @@ angular.module ( 'starter.controllers', [] )
   $scope.loginData = {};
 
   // Create the login modal that we will use later
-  $ionicModal.fromTemplateUrl ( 'templates/login.html', {
-    scope: $scope
-  }).then ( function ( modal ) {
-    $scope.loginmodal = modal;
-  });
+  $ionicModal
+    .fromTemplateUrl ( 'templates/login.html', {
+      scope: $scope
+    } )
+
+    .then ( function ( modal ) {
+      $scope.loginmodal = modal;
+    } );
 
   // Triggered in the login modal to close it
   $scope.closeLogin = function ( ) {
@@ -44,15 +47,17 @@ angular.module ( 'starter.controllers', [] )
         method  : 'POST',
         url     : 'http://rogerlsmith.net/concept/bower_components/bootstrap/mobile/user.php',
         data    : formData,
-
       } )
+
       .success ( function ( data, status, headers, config ) {
           if ( status == 200 ) {
-            alert ( "Login Success" );
+            $scope.closeLogin ( );
           }
       } )
+
       .error ( function ( data, status, headers, config ) {
         alert ( "Login failure" );
+        $scope.closeLogin ( );
       } );
   };
 
@@ -65,11 +70,14 @@ angular.module ( 'starter.controllers', [] )
   $scope.registerData = {};
 
   // Create the register modal that we will use later
-  $ionicModal.fromTemplateUrl('templates/register.html', {
-    scope: $scope
-  }).then ( function ( modal ) {
-    $scope.registermodal = modal;
-  });
+  $ionicModal
+    .fromTemplateUrl ( 'templates/register.html', {
+      scope: $scope
+    } )
+
+    .then ( function ( modal ) {
+      $scope.registermodal = modal;
+    } );
 
   // Triggered in the register modal to close it
   $scope.closeRegister = function ( ) {
@@ -94,12 +102,15 @@ angular.module ( 'starter.controllers', [] )
           password: $scope.registerData.password,
           method: 'register'
       } )
+
       .success ( function ( data, status, headers, config ) {
           alert ( "success" );
       } )
+
       .error ( function ( data, status, headers, config ) {
           alert ( "Error" );
       } );
+
     };
 
 
@@ -110,11 +121,14 @@ angular.module ( 'starter.controllers', [] )
     $scope.forgotPasswordData = {};
 
     // Create the forgot password modal that we will use later
-    $ionicModal.fromTemplateUrl ( 'templates/forgotPassword.html', {
-      scope: $scope
-    }).then( function ( modal ) {
-      $scope.forgotmodal = modal;
-    });
+    $ionicModal
+      .fromTemplateUrl ( 'templates/forgotPassword.html', {
+        scope: $scope
+      } )
+
+      .then ( function ( modal ) {
+        $scope.forgotmodal = modal;
+      });
 
     // Triggered in the forgot modal to close it
     $scope.closeForgotPassword = function ( ) {
@@ -137,12 +151,15 @@ angular.module ( 'starter.controllers', [] )
           email: $scope.forgotPasswordData.email,
           method: 'reestPassword'
         })
+
         .success( function ( data, status, headers, config ) {
             alert ( "success" );
         })
+
         .error( function ( data, status, headers, config ) {
             alert ( "Error" );
         });
+
     };
 
 
@@ -162,19 +179,15 @@ angular.module ( 'starter.controllers', [] )
 
         .then ( 
           function ( result ) {
-
             alert ( "success" );
+          },
 
-          }, 
           function ( err ) {
-
              alert ( "fail" );
-
           }, 
+
           function ( progress ) {
-
              //Constant Progress updates
-
          });
 
       };
@@ -187,23 +200,21 @@ angular.module ( 'starter.controllers', [] )
     $scope.captureData = {};
     
     $scope.captureAudio = function ( ) {
-        console.log ( 'Doing audio capture', $scope.captureData );
+      console.log ( 'Doing audio capture', $scope.captureData );
 
-        var options = { limit: 3, duration: 10 };
+      var options = { limit: 3, duration: 10 };
 
-        $cordovaMedia
-          .captureAudio ( options )
+      $cordovaMedia
+        .captureAudio ( options )
 
-          .then ( 
-            function ( audioData ) {
+        .then ( 
+          function ( audioData ) {
+            alert ( "success" );
+          },
 
-              alert ( "success" );
-
-            }, function ( err ) {
-
-              alert ( "fail" );
-
-            });
+          function ( err ) {
+            alert ( "fail" );
+        });
     };
 
   })        // end of AppCtrl
