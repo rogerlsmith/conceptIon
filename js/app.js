@@ -23,8 +23,9 @@ angular.module( 'starter', ['ionic', 'ngCordova', 'starter.controllers'] )
 .config ( function ( $stateProvider, $urlRouterProvider ) {
 
   var showMenu = "templates/userLogin.html";
-  var loggedin = false;
-  
+
+  var loggedin = true;
+
   if ( loggedin ) {
     showMenu = "templates/userMenu.html";
   }
@@ -61,6 +62,18 @@ angular.module( 'starter', ['ionic', 'ngCordova', 'starter.controllers'] )
       views: {
         'menuContent': {
           templateUrl: "templates/playlists.html",
+          controller: 'AudioCtrl'
+        }
+      }
+    })
+
+
+
+    .state ( 'app.makeNoise', {
+      url: "/makeNoise",
+      views: {
+        'menuContent': {
+          templateUrl: "templates/makeNoise.html",
           controller: 'AudioCtrl'
         }
       }

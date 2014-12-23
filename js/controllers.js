@@ -51,6 +51,7 @@ angular.module ( 'starter.controllers', [] )
 
       .success ( function ( data, status, headers, config ) {
           if ( status == 200 ) {
+            $scope.loginData.data = data;
             $scope.closeLogin ( );
           }
       } )
@@ -60,6 +61,10 @@ angular.module ( 'starter.controllers', [] )
         $scope.closeLogin ( );
       } );
   };
+
+  $scope.getLoginInfo = function ( ) {
+    return $scope.loginData.data;
+  }
 
 
 
