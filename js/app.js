@@ -1,9 +1,10 @@
 
-//bower install ngCordova
 
-angular.module( 'starter', ['ionic', 'ngCordova', 'starter.controllers'] )
+angular.module ( 'starter', ['ionic', 'ngCordova', 'starter.controllers'] )
 
-.run ( function ( $ionicPlatform ) {
+.run ( function ( $ionicPlatform, $rootScope ) {
+
+  $rootScope.user = null;
 
   $ionicPlatform.ready ( function ( ) {
 
@@ -13,22 +14,22 @@ angular.module( 'starter', ['ionic', 'ngCordova', 'starter.controllers'] )
     if ( window.cordova && window.cordova.plugins.Keyboard ) {
       cordova.plugins.Keyboard.hideKeyboardAccessoryBar ( true );
     }
+
     if ( window.StatusBar ) {
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault ( );
     }
-  });
-})    // end of run
+    
+  } );
+} )    // end of run
 
 .config ( function ( $stateProvider, $urlRouterProvider ) {
 
   var showMenu = "templates/userLogin.html";
 
-  var loggedin = true;
-
-  if ( loggedin ) {
-    showMenu = "templates/userMenu.html";
-  }
+//  if ( $rootScope.user != null ) {
+//    showMenu = "templates/userMenu.html";
+//  }
 
 
   $stateProvider
@@ -46,7 +47,7 @@ angular.module( 'starter', ['ionic', 'ngCordova', 'starter.controllers'] )
           templateUrl: "templates/search.html"
         }
       }
-    })
+    } )
 
     .state ( 'app.browse', {
       url: "/browse",
@@ -55,7 +56,7 @@ angular.module( 'starter', ['ionic', 'ngCordova', 'starter.controllers'] )
           templateUrl: "templates/browse.html"
         }
       }
-    })
+    } )
 
     .state ( 'app.playlists', {
       url: "/playlists",
@@ -65,7 +66,7 @@ angular.module( 'starter', ['ionic', 'ngCordova', 'starter.controllers'] )
           controller: 'AudioCtrl'
         }
       }
-    })
+    } )
 
 
 
@@ -77,7 +78,7 @@ angular.module( 'starter', ['ionic', 'ngCordova', 'starter.controllers'] )
           controller: 'AudioCtrl'
         }
       }
-    })
+    } )
 
     .state ( 'app.single', {
       url: "/playlists/:playlistId",
@@ -87,12 +88,12 @@ angular.module( 'starter', ['ionic', 'ngCordova', 'starter.controllers'] )
           controller: 'PlaylistCtrl'
         }
       }
-    });
+    } );
 
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise ( '/app/playlists' );
 
-});   // end of config
+} );   // end of config
 
 

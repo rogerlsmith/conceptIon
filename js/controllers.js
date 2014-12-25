@@ -3,7 +3,7 @@
 angular.module ( 'starter.controllers', [] )
 
 
-.controller ( 'AppCtrl', function ( $scope, $http, $cordovaFile, $cordovaMedia, $ionicModal, $timeout ) {
+.controller ( 'AppCtrl', function ( $scope, $rootScope, $http, $cordovaFile, $cordovaMedia, $ionicModal, $timeout ) {
 
 
 /* Login */
@@ -51,6 +51,7 @@ angular.module ( 'starter.controllers', [] )
 
       .success ( function ( data, status, headers, config ) {
           if ( status == 200 ) {
+            $rootScope.user = data;
             $scope.loginData.data = data;
             $scope.closeLogin ( );
           }
