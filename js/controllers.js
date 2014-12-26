@@ -68,6 +68,13 @@ angular.module ( 'starter.controllers', [] )
   }
 
 
+/* Logout */
+
+  // Open the login modal
+  $scope.logout = function ( ) {
+    $rootScope.user = null;
+  };
+
 
 /* Register */
 

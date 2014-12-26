@@ -73,6 +73,7 @@ angular.module ( 'starter', ['ionic', 'ngCordova', 'starter.controllers'] )
       }
     } )
 
+
     .state ( 'app.single', {
       url: "/playlists/:playlistId",
       views: {
