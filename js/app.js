@@ -25,18 +25,11 @@ angular.module ( 'starter', ['ionic', 'ngCordova', 'starter.controllers'] )
 
 .config ( function ( $stateProvider, $urlRouterProvider ) {
 
-  var showMenu = "templates/userLogin.html";
-
-//  if ( $rootScope.user != null ) {
-//    showMenu = "templates/userMenu.html";
-//  }
-
-
   $stateProvider
     .state ( 'app', {
       url: "/app",
       abstract: true,
-      templateUrl: showMenu,
+      templateUrl: "templates/userMenu.html",
       controller: 'AppCtrl'
     } )
 

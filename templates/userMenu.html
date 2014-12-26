@@ -9,38 +9,64 @@
     <ion-nav-view name="menuContent" animation="slide-left-right"></ion-nav-view>
   </ion-side-menu-content>
 
-  <ion-side-menu side="left">
-    <ion-header-bar class="bar-stable">
-      <h1 class="title">Control</h1>
-    </ion-header-bar>
-    <ion-content>
-      <ion-list>
+  <div ng-if="$root.data != null" >
+    <ion-side-menu side="left">
+      <ion-header-bar class="bar-stable">
+        <h1 class="title">Control</h1>
+      </ion-header-bar>
+      <ion-content>
+        <ion-list>
 
-        <ion-item nav-clear menu-close href="#/app/search">
-          Search
-        </ion-item>
+          <ion-item nav-clear menu-close href="#/app/search">
+            Search
+          </ion-item>
 
-        <ion-item nav-clear menu-close href="#/app/browse">
-          Browse
-        </ion-item>
+          <ion-item nav-clear menu-close href="#/app/browse">
+            Browse
+          </ion-item>
 
-        <ion-item nav-clear menu-close href="#/app/findFriends">
-          Find Friends
-        </ion-item>
+          <ion-item nav-clear menu-close href="#/app/findFriends">
+            Find Friends
+          </ion-item>
 
-        <ion-item nav-clear menu-close href="#/app/friends">
-          Friends
-        </ion-item>
+          <ion-item nav-clear menu-close href="#/app/friends">
+            Friends
+          </ion-item>
 
-        <ion-item nav-clear menu-close href="#/app/makeNoise">
-          Make Noise
-        </ion-item>
+          <ion-item nav-clear menu-close href="#/app/makeNoise">
+            Make Noise
+          </ion-item>
 
-        <ion-item nav-clear menu-close href="#/app/logout">
-          Log Out
-        </ion-item>
-        
-      </ion-list>
-    </ion-content>
-  </ion-side-menu>
+          <ion-item nav-clear menu-close href="#/app/logout">
+            Log Out
+          </ion-item>
+          
+        </ion-list>
+      </ion-content>
+    </ion-side-menu>
+  </div>
+
+
+  <div ng-if="$root.data == null" >
+    <ion-side-menu side="left">
+      <ion-header-bar class="bar-stable">
+        <h1 class="title">User Menu</h1>
+      </ion-header-bar>
+      <ion-content>
+        <ion-list>
+          <ion-item nav-clear menu-close ng-click="login()">
+            Login
+          </ion-item>
+          <ion-item nav-clear menu-close ng-click="register()">
+            Register
+          </ion-item>
+          <ion-item nav-clear menu-close ng-click="forgotPassword()">
+            Forgot Password
+          </ion-item>
+          <ion-
+        </ion-list>
+      </ion-content>
+    </ion-side-menu>
+  </div>
+  
 </ion-side-menus>
