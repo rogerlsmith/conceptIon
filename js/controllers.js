@@ -230,6 +230,29 @@ angular.module ( 'starter.controllers', [] )
         });
     };
 
+
+
+    // Create the make noise modal
+    $ionicModal
+      .fromTemplateUrl ( 'templates/makeNoise.html', {
+        scope: $scope
+      } )
+
+      .then ( function ( modal ) {
+        $scope.makeNoiseModal = modal;
+      } );
+
+    // Triggered in the make noise modal to close it
+    $scope.closeMakeNoise = function ( ) {
+      $scope.makeNoiseModal.hide ( );
+    };
+
+    // Open the make noise modal
+    $scope.makeNoise = function ( ) {
+      $scope.makeNoiseModal.show ( );
+    };
+
+
   })        // end of AppCtrl
 
 
