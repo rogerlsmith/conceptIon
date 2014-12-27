@@ -184,6 +184,8 @@ angular.module ( 'starter.controllers', [] )
     $scope.upload = function ( ) {
        console.log ( 'Doing upload', $scope.uploadData );
 
+       options = {};
+
        $cordovaFile
         .uploadFile ( 
           'http://rogerlsmith.net/concept/bower_components/bootstrap/mobile/audio.php', 
