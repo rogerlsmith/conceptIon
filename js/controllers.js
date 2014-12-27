@@ -224,6 +224,7 @@ angular.module ( 'starter.controllers', [] )
 
         .then ( 
           function ( audioData ) {
+            $scope.captureData = audioData;
             alert ( "success" );
           },
 
