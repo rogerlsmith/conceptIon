@@ -54,6 +54,9 @@ angular.module ( 'starter.controllers', [] )
             $rootScope.user = data;
             $scope.loginData.data = data;
             $scope.closeLogin ( );
+          } else {
+            alert ( "Login failure at server" );
+            $scope.closeLogin ( );
           }
       } )
 
@@ -106,7 +109,6 @@ angular.module ( 'starter.controllers', [] )
   $scope.doRegister = function ( ) {
     console.log( 'Doing register', $scope.registerData );
 
-
     var formData = { 
       username: $scope.registerData.username,
       password: $scope.registerData.password,
@@ -124,6 +126,10 @@ angular.module ( 'starter.controllers', [] )
           if ( status == 200 ) {
             alert ( "registration successful" );
             $scope.closeRegister ( );
+            $scope.login ( );
+          } else {
+            alert ( "registration failure at server" );
+            $scope.closeRegister ( );
           }
       } )
 
@@ -131,22 +137,6 @@ angular.module ( 'starter.controllers', [] )
         alert ( "registration failure" );
         $scope.closeRegister ( );
       } );
-
-    // $http
-    //   .post ( 'http://rogerlsmith.net/concept/bower_components/bootstrap/mobile/user.php', {
-    //       username: $scope.registerData.username,
-    //       email: $scope.registerData.email,
-    //       password: $scope.registerData.password,
-    //       method: 'register'
-    //   } )
-
-    //   .success ( function ( data, status, headers, config ) {
-    //       alert ( "success" );
-    //   } )
-
-    //   .error ( function ( data, status, headers, config ) {
-    //       alert ( "Error" );
-    //   } );
 
     };
 
