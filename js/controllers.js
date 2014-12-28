@@ -104,25 +104,49 @@ angular.module ( 'starter.controllers', [] )
 
   // Perform the register action when the user submits the register form
   $scope.doRegister = function ( ) {
-    console.log('Doing register', $scope.registerData);
+    console.log( 'Doing register', $scope.registerData );
 
-    $http
-      .post ( 'http://rogerlsmith.net/concept/bower_components/bootstrap/mobile/user.php', {
-          username: $scope.registerData.username,
-          firstname: $scope.registerData.firstname,
-          lastname: $scope.registerData.lastname,
-          email: $scope.registerData.email,
-          password: $scope.registerData.password,
-          method: 'register'
+
+    var formData = { 
+      username: $scope.registerData.username,
+      password: $scope.registerData.password,
+      email: $scope.registerData.email,
+      method: 'register'
+    };
+
+    $http ( {
+        method  : 'POST',
+        url     : 'http://rogerlsmith.net/concept/bower_components/bootstrap/mobile/user.php',
+        data    : formData,
       } )
 
       .success ( function ( data, status, headers, config ) {
-          alert ( "success" );
+          if ( status == 200 ) {
+            alert ( "registration successful" );
+            $scope.closeRegister ( );
+          }
       } )
 
       .error ( function ( data, status, headers, config ) {
-          alert ( "Error" );
+        alert ( "registration failure" );
+        $scope.closeRegister ( );
       } );
+
+    // $http
+    //   .post ( 'http://rogerlsmith.net/concept/bower_components/bootstrap/mobile/user.php', {
+    //       username: $scope.registerData.username,
+    //       email: $scope.registerData.email,
+    //       password: $scope.registerData.password,
+    //       method: 'register'
+    //   } )
+
+    //   .success ( function ( data, status, headers, config ) {
+    //       alert ( "success" );
+    //   } )
+
+    //   .error ( function ( data, status, headers, config ) {
+    //       alert ( "Error" );
+    //   } );
 
     };
 
