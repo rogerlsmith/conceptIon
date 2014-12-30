@@ -270,7 +270,6 @@ angular.module ( 'starter.controllers', [] )
       $scope.makeNoiseModal.show ( );
     };
 
-
   } )        // end of AppCtrl
 
 
@@ -303,21 +302,41 @@ angular.module ( 'starter.controllers', [] )
 
   .controller ( 'FriendsController', function ( $scope, $cordovaContacts ) {
    
-      $scope.getContactList = function() {
+      $scope.getContactList = function ( ) {
 
         $cordovaContacts.find ( {filter: '' } )
-          .then(function ( result ) {
+          .then ( function ( result ) {
             $scope.contacts = result;
           },
 
           function ( error ) {
             console.log ( "ERROR: " + error );
         } ); 
+      };
+
+
+      $scope.findFriends = function ( ) {
+
+        $scope.getContactList ( );
+
+        $http ( {
+          method  : 'POST',
+          url     : 'http://rogerlsmith.net/concept/bower_components/bootstrap/mobile/friends.php',
+          data    : $scope.contacts,
+        } )
+
+        .success ( function ( data, status, headers, config ) {
+            if ( status == 200 ) {
+              alert ( "find friends success" );
+            } else {
+              alert ( "find friends failure at server" );
+            }
+        } )
+
+        .error ( function ( data, status, headers, config ) {
+          alert ( "find friends failure" );
+        } );
       }
-   
-      $scope.createContact = function() { }
-      
-      $scope.removeContact = function() { }
    
   } );     // end of FriendsController
 
