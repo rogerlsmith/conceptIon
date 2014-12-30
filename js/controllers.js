@@ -259,6 +259,7 @@ angular.module ( 'starter.controllers', [] )
         $scope.makeNoiseModal = modal;
       } );
 
+
     // Triggered in the make noise modal to close it
     $scope.closeMakeNoise = function ( ) {
       $scope.makeNoiseModal.hide ( );
@@ -270,32 +271,54 @@ angular.module ( 'starter.controllers', [] )
     };
 
 
-  })        // end of AppCtrl
+  } )        // end of AppCtrl
 
 
-.controller ( 'AudioCtrl', function ( $scope ) {
+  .controller ( 'AudioCtrl', function ( $scope ) {
 
-  $scope.playlists = [
-    { title: 'Messages', id: 1 },
-    { title: 'Songs', id: 2 },
-    { title: 'Poetry', id: 3 },
-    { title: 'Jokes', id: 4 },
-    { title: 'Thoughts', id: 5 },
-    { title: 'Sounds', id: 6 }
-  ];
+    $scope.playlists = [
+      { title: 'Messages', id: 1 },
+      { title: 'Songs', id: 2 },
+      { title: 'Poetry', id: 3 },
+      { title: 'Jokes', id: 4 },
+      { title: 'Thoughts', id: 5 },
+      { title: 'Sounds', id: 6 }
+    ];
 
-  $scope.showPublic = function ( ) {
+    $scope.showPublic = function ( ) {
 
-  };
+    };
 
-  $scope.showPrivate = function ( ) {
+    $scope.showPrivate = function ( ) {
 
-  };
+    };
 
-})        // end of AudioCtrl
+  } )        // end of AudioCtrl
 
 
-.controller ( 'PlaylistCtrl', function ( $scope, $stateParams ) {
-});       // end of PlaylistCtrl
+  .controller ( 'PlaylistCtrl', function ( $scope, $stateParams ) {
+  } )       // end of PlaylistCtrl
+
+
+
+  .controller ( 'FriendsController', function ( $scope, $cordovaContacts ) {
+   
+      $scope.getContactList = function() {
+
+        $cordovaContacts.find ( {filter: '' } )
+          .then(function ( result ) {
+            $scope.contacts = result;
+          },
+
+          function ( error ) {
+            console.log ( "ERROR: " + error );
+        } ); 
+      }
+   
+      $scope.createContact = function() { }
+      
+      $scope.removeContact = function() { }
+   
+  } );     // end of FriendsController
 
 
