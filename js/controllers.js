@@ -213,11 +213,11 @@ angular.module ( 'starter.controllers', [] )
 
         .then ( 
           function ( result ) {
-            alert ( "success" );
+            alert ( result );
           },
 
           function ( err ) {
-             alert ( "fail" );
+             alert ( err );
           }, 
 
           function ( progress ) {
