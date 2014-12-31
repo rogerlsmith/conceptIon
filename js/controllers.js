@@ -198,13 +198,18 @@ angular.module ( 'starter.controllers', [] )
     $scope.upload = function ( ) {
        console.log ( 'Doing upload', $scope.uploadData );
 
-       options = {};
+       options = {
+        user_id: $scope.loginData.data.user_id,
+        method: "public"
+      };
+
+       alert($scope.captureData.path);
 
        $cordovaFile
         .uploadFile ( 
           'http://rogerlsmith.net/concept/bower_components/bootstrap/mobile/audio.php', 
-          'test.mp3',
-           options )
+          $scope.captureData.path,
+          options )
 
         .then ( 
           function ( result ) {
@@ -217,7 +222,7 @@ angular.module ( 'starter.controllers', [] )
 
           function ( progress ) {
              //Constant Progress updates
-         });
+         } );
 
       };
       
@@ -231,20 +236,26 @@ angular.module ( 'starter.controllers', [] )
     $scope.captureAudio = function ( ) {
       console.log ( 'Doing audio capture', $scope.captureData );
 
-      var options = { limit: 3, duration: 10 };
+      var options = { limit: 2 };
 
-      $cordovaMedia
-        .captureAudio ( options )
+      navigator.device.capture.captureAudio (
 
-        .then ( 
-          function ( audioData ) {
-            $scope.captureData = audioData;
-            alert ( "success" );
-          },
+        // success function for captureAudio
+        function ( mediaFiles ) {
+          var i, path, len;
+          for (i = 0, len = mediaFiles.length; i < len; i += 1) {
+              path = mediaFiles[i].fullPath;
+              $scope.captureData.path = path;
+          }
+      },
 
-          function ( err ) {
-            alert ( "fail" );
-        });
+      // fail function for captureAudio
+      function ( ) {
+        alert ("Fail");
+      },
+
+      options);
+
     };
 
 
