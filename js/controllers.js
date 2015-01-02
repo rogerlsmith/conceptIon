@@ -196,16 +196,15 @@ angular.module ( 'starter.controllers', [] )
     $scope.uploadData = {};
 
     $scope.upload = function ( ) {
-       console.log ( 'Doing upload', $scope.uploadData );
+      console.log ( 'Doing upload', $scope.uploadData );
 
-       options = {
-        user_id: $scope.loginData.data.user_id,
-        method: "public"
+      options = {
+        user_id: $scope.loginData.data.user.id,
+        method: 'public',
+        mimeType: 'audio/mpeg3'
       };
 
-       alert($scope.captureData.path);
-
-       $cordovaFile
+      $cordovaFile
         .uploadFile ( 
           'http://rogerlsmith.net/concept/bower_components/bootstrap/mobile/audio.php', 
           $scope.captureData.path,
@@ -213,11 +212,11 @@ angular.module ( 'starter.controllers', [] )
 
         .then ( 
           function ( result ) {
-            alert ( result );
+            alert ( "success " + result );
           },
 
           function ( err ) {
-             alert ( err );
+             alert ( "failure " + err );
           }, 
 
           function ( progress ) {
