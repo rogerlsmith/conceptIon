@@ -6,6 +6,9 @@ angular.module ( 'starter', ['ionic', 'ngCordova', 'starter.controllers'] )
 
   $rootScope.user = null;
 
+  //
+  // ready
+  //
   $ionicPlatform.ready ( function ( ) {
 
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -21,9 +24,15 @@ angular.module ( 'starter', ['ionic', 'ngCordova', 'starter.controllers'] )
     }
     
   } );
+
 } )    // end of run
 
+
+//
+// config
+//
 .config ( function ( $stateProvider, $urlRouterProvider ) {
+
 
   $stateProvider
     .state ( 'app', {
@@ -33,6 +42,9 @@ angular.module ( 'starter', ['ionic', 'ngCordova', 'starter.controllers'] )
       controller: 'AppCtrl'
     } )
 
+    //
+    // main app search audio
+    //
     .state ( 'app.search', {
       url: "/search",
       views: {
@@ -42,6 +54,8 @@ angular.module ( 'starter', ['ionic', 'ngCordova', 'starter.controllers'] )
       }
     } )
 
+    //
+    // main app browse audio
     .state ( 'app.browse', {
       url: "/browse",
       views: {
@@ -51,6 +65,9 @@ angular.module ( 'starter', ['ionic', 'ngCordova', 'starter.controllers'] )
       }
     } )
 
+    //
+    //  playlists (should be removed)
+    //
     .state ( 'app.playlists', {
       url: "/playlists",
       views: {
@@ -61,8 +78,9 @@ angular.module ( 'starter', ['ionic', 'ngCordova', 'starter.controllers'] )
       }
     } )
 
-
-
+    //
+    // main app audio menu
+    //
     .state ( 'app.makeNoise', {
       url: "/makeNoise",
       views: {

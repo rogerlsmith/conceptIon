@@ -13,7 +13,9 @@ angular.module ( 'starter.controllers', [] )
   // Form data for the login modal
   $scope.loginData = {};
 
+  //
   // Create the login modal that we will use later
+  //
   $ionicModal
     .fromTemplateUrl ( 'templates/login.html', {
       scope: $scope
@@ -23,17 +25,23 @@ angular.module ( 'starter.controllers', [] )
       $scope.loginmodal = modal;
     } );
 
+  //
   // Triggered in the login modal to close it
+  //
   $scope.closeLogin = function ( ) {
     $scope.loginmodal.hide ( );
   };
 
+  //
   // Open the login modal
+  //
   $scope.login = function ( ) {
     $scope.loginmodal.show ( );
   };
 
+  //
   // Perform the login action when the user submits the login form
+  //
   $scope.doLogin = function ( ) {
     console.log ( 'Doing login: ', $scope.loginData );
 
@@ -73,7 +81,9 @@ angular.module ( 'starter.controllers', [] )
 
 /* Logout */
 
+  //
   // Open the login modal
+  //
   $scope.logout = function ( ) {
     $rootScope.user = null;
   };
@@ -81,8 +91,9 @@ angular.module ( 'starter.controllers', [] )
 
 /* Register */
 
-
+  //
   // Form data for the register modal
+  //
   $scope.registerData = {};
 
   // Create the register modal that we will use later
@@ -95,17 +106,23 @@ angular.module ( 'starter.controllers', [] )
       $scope.registermodal = modal;
     } );
 
+  //
   // Triggered in the register modal to close it
+  //
   $scope.closeRegister = function ( ) {
     $scope.registermodal.hide ( );
   };
 
+  //
   // Open the register modal
+  //
   $scope.register = function ( ) {
     $scope.registermodal.show ( );
   };
 
+  //
   // Perform the register action when the user submits the register form
+  //
   $scope.doRegister = function ( ) {
     console.log( 'Doing register', $scope.registerData );
 
@@ -147,7 +164,9 @@ angular.module ( 'starter.controllers', [] )
     // Form data for the forgot password modal
     $scope.forgotPasswordData = {};
 
+    //
     // Create the forgot password modal that we will use later
+    //
     $ionicModal
       .fromTemplateUrl ( 'templates/forgotPassword.html', {
         scope: $scope
@@ -157,18 +176,23 @@ angular.module ( 'starter.controllers', [] )
         $scope.forgotmodal = modal;
       });
 
+    //
     // Triggered in the forgot modal to close it
+    //
     $scope.closeForgotPassword = function ( ) {
       $scope.forgotmodal.hide ( );
     };
 
+    //
     // Open the forgot password modal
+    //
     $scope.forgotPassword = function ( ) {
       $scope.forgotmodal.show ( );
     };
 
-
+    //
     // Perform the resetPassword action when the user submits the forgotPassword form
+    //
     $scope.doForgot = function ( ) {
       console.log ( 'Doing forgot password', $scope.forgotPasswordData );
 
@@ -192,7 +216,8 @@ angular.module ( 'starter.controllers', [] )
 
 /* Upload File */
 
-    /* data for upload */
+
+    // data for upload 
     $scope.uploadData = {};
 
     $scope.upload = function ( ) {
@@ -229,7 +254,7 @@ angular.module ( 'starter.controllers', [] )
 /* Record Audio */
 
 
-    /* data for capture */
+    // data for capture 
     $scope.captureData = {};
     
     $scope.captureAudio = function ( ) {
@@ -238,7 +263,7 @@ angular.module ( 'starter.controllers', [] )
       var options = { limit: 2 };
 
       navigator.device.capture.captureAudio (
-
+      
         // success function for captureAudio
         function ( mediaFiles ) {
           var i, path, len;
@@ -258,8 +283,9 @@ angular.module ( 'starter.controllers', [] )
     };
 
 
-
+    //
     // Create the make noise modal
+    //
     $ionicModal
       .fromTemplateUrl ( 'templates/makeNoise.html', {
         scope: $scope
