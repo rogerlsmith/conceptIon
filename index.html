@@ -25,6 +25,20 @@
   </head>
 
   <body ng-app="starter">
-    <ion-nav-view></ion-nav-view>
+    <ion-nav-bar class="bar-positive">
+        hello
+    </ion-nav-bar>
+    <ion-nav-view>
+      <ion-view>
+        <ion-nav-buttons side="primary">
+          <button class="button" ng-click="doSomething()">
+            button
+          </button>
+        </ion-nav-buttons>
+        <ion-content>
+          content
+        </ion-content>
+      </ion-view>
+    </ion-nav-view>
   </body>
 </html>
