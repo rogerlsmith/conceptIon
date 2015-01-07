@@ -225,8 +225,6 @@ angular.module ( 'starter.controllers', [] )
 
       options = {
         user_id: $scope.loginData.data.user.id,
-        method: 'public',
-        name: 'custom.mp3',
         mimeType: 'audio/mpeg3'
       };
 
