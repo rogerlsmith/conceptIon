@@ -223,8 +223,13 @@ angular.module ( 'starter.controllers', [] )
     $scope.upload = function ( ) {
       console.log ( 'Doing upload', $scope.uploadData );
 
-      options = {
-        user_id: $scope.loginData.data.user.id,
+      var p = {
+         user_id: $scope.loginData.data.user.id,
+      }
+
+      var options = {
+        chunkedMode: false,
+        params: p,
         mimeType: 'audio/mpeg3'
       };
 
