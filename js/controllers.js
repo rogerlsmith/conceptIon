@@ -90,6 +90,11 @@ angular.module ( 'starter.controllers', [] )
     alert ( 'login Twitter' );
   }
 
+  $scope.loginLinkedin = function ( ) {
+    alert ( 'login Linkedin' );
+  }
+
+
 /* Logout */
 
   //
@@ -167,6 +172,26 @@ angular.module ( 'starter.controllers', [] )
       } );
 
     };
+
+  $scope.getLoginInfo = function ( ) {
+    return $scope.loginData.data;
+  }
+
+  $scope.registerFacebook = function ( ) {
+    alert ( 'register facebook' );
+  }
+
+  $scope.registerGoogleplus = function ( ) {
+    alert ( 'register google+' );
+  }
+
+  $scope.registerTwitter = function ( ) {
+    alert ( 'register Twitter' );
+  }
+
+  $scope.registerLinkedin = function ( ) {
+    alert ( 'register Linkedin' );
+  }
 
 
 /* Forgot Password */
