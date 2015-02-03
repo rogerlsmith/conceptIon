@@ -22,6 +22,8 @@ angular.module ( 'starter', ['ionic', 'ngCordova', 'starter.controllers'] )
       // org.apache.cordova.statusbar required
       StatusBar.styleDefault ( );
     }
+
+    OAuth.initialize ( '12jsWDI3spZo8YgQogcmGQJDro0' );
     
   } );
 

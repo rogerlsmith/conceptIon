@@ -78,6 +78,17 @@ angular.module ( 'starter.controllers', [] )
     return $scope.loginData.data;
   }
 
+  $scope.loginFacebook = function ( ) {
+    alert ( 'login facebook' );
+  }
+
+  $scope.loginGoogleplus = function ( ) {
+    alert ( 'login google+' );
+  }
+
+  $scope.loginTwitter = function ( ) {
+    alert ( 'login Twitter' );
+  }
 
 /* Logout */
 
