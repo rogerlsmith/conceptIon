@@ -23,6 +23,9 @@ angular.module ( 'starter', ['ionic', 'ngCordova', 'starter.controllers'] )
       StatusBar.styleDefault ( );
     }
 
+    //
+    // initialize oauth with public key
+    //
     OAuth.initialize ( '12jsWDI3spZo8YgQogcmGQJDro0' );
     
   } );
