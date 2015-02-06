@@ -178,7 +178,14 @@ angular.module ( 'starter.controllers', [] )
   }
 
   $scope.registerFacebook = function ( ) {
-    alert ( 'register facebook' );
+    OAuth.popup('facebook')
+      .done(function(result) {
+        //use result.access_token in your API request 
+        //or use result.get|post|put|del|patch|me methods (see below)
+      })
+      .fail(function (err) {
+        //handle error with err
+      });
   }
 
   $scope.registerGoogleplus = function ( ) {
@@ -186,7 +193,14 @@ angular.module ( 'starter.controllers', [] )
   }
 
   $scope.registerTwitter = function ( ) {
-    alert ( 'register Twitter' );
+    OAuth.popup('twitter')
+      .done(function(result) {
+        //use result.access_token in your API request 
+        //or use result.get|post|put|del|patch|me methods (see below)
+      })
+      .fail(function (err) {
+        //handle error with err
+      });
   }
 
   $scope.registerLinkedin = function ( ) {

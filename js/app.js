@@ -26,7 +26,7 @@ angular.module ( 'starter', ['ionic', 'ngCordova', 'starter.controllers'] )
     //
     // initialize oauth with public key
     //
-    OAuth.initialize ( '12jsWDI3spZo8YgQogcmGQJDro0' );
+    OAuth.initialize ( 'nO3lm-ZVcpPkm7A8qXoVCXWAEO8' );
     
   } );
 
