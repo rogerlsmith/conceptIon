@@ -178,12 +178,12 @@ angular.module ( 'starter.controllers', [] )
   }
 
   $scope.registerFacebook = function ( ) {
-    OAuth.popup('facebook')
-      .done(function(result) {
+    OAuth.popup ( 'facebook' )
+      .done ( function ( result ) {
         //use result.access_token in your API request 
         //or use result.get|post|put|del|patch|me methods (see below)
       })
-      .fail(function (err) {
+      .fail ( function ( err ) {
         //handle error with err
       });
   }
@@ -193,12 +193,12 @@ angular.module ( 'starter.controllers', [] )
   }
 
   $scope.registerTwitter = function ( ) {
-    OAuth.popup('twitter')
-      .done(function(result) {
+    OAuth.popup ( 'twitter' )
+      .done ( function ( result ) {
         //use result.access_token in your API request 
         //or use result.get|post|put|del|patch|me methods (see below)
       })
-      .fail(function (err) {
+      .fail ( function ( err ) {
         //handle error with err
       });
   }
